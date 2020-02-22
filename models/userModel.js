@@ -1,7 +1,7 @@
 
 module.exports = {
-    insertToken:(conn,data,callback) => {
-        conn.query(`INSERT INTO users SET `)
+    insertToken:(conn,token,userid,callback) => {
+        conn.query(`INSERT INTO user_token SET token='${token}',id_user=${userid}`,callback)
     },
     checkUsername: (conn,data,callback) => {
         conn.query(`SELECT COUNT(*) as cnt FROM users WHERE username='${data.username}'`,callback)
